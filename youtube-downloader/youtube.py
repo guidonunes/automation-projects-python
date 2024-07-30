@@ -24,13 +24,14 @@ def open_file_dialog():
 
 
 if __name__ == "__main__":
-    root = tk.Tk()
+    root = Tk()
     root.withdraw()
 
     video_url = input("Enter the video URL: ")
     save_path = open_file_dialog()
 
-    if not folder:
-        print("No folder selected...")
-    else:
+    if save_path:
+        print("Downloading...")
         download_video(video_url, save_path)
+    else:
+        print("No folder selected...")
