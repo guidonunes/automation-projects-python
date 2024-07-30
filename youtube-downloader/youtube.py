@@ -13,3 +13,16 @@ def download_video(url, save_path):
 
     except Exception as e:
         print(e)
+
+def open_file_dialog():
+    folder =filedialog.askdirectory()
+    if folder:
+        print(f"Selected folder: {folder}")
+
+    return folder
+
+
+root = tk.Tk()
+root.withdraw()
+
+if__name__ == "__main__":
