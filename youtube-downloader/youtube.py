@@ -1,5 +1,5 @@
 from pytube import YouTube
-from tkinter import tk
+from tkinter import Tk
 from tkinter import filedialog
 
 
@@ -13,9 +13,3 @@ def download_video(url, save_path):
 
     except Exception as e:
         print(e)
-
-
-url=""
-save_path="/home/guilherme/Documents/code/automation-projects-python"
-
-download_video(url, save_path)
