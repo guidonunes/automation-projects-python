@@ -1,4 +1,5 @@
 import os
 import shutil
 
-# Function to move files to their respective folders
+path = input("Enter the path of the directory to organize: ")
+files = os.listdir(path)
