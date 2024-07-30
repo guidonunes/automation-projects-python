@@ -16,4 +16,6 @@ def download_video(url, save_path):
 
 
 url=""
-save_path=""
+save_path="/home/guilherme/Documents/code/automation-projects-python"
+
+download_video(url, save_path)
