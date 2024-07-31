@@ -3,6 +3,10 @@ import clipboard
 import json
 
 
+def save_items(filepath, items):
+    with open(filepath, 'w') as file:
+        json.dump(items, file)
+
 if len(sys.argv) == 2:
     command = sys.argv[1]
     print(command)
