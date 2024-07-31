@@ -21,7 +21,7 @@ if len(sys.argv) == 2:
     if command == 'save':
         key = input("Enter key: ")
         data[key] = clipboard.paste()
-        save_items('data.json', data)
+        save_items(SAVED_DATA, data)
     elif command == 'load':
         print('Laoding')
     elif command == 'list':
