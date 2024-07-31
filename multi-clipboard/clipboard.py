@@ -7,6 +7,10 @@ def save_items(filepath, items):
     with open(filepath, 'w') as file:
         json.dump(items, file)
 
+def load_items(filepath):
+    with open(filepath, 'r') as file:
+        return json.load(file)
+
 if len(sys.argv) == 2:
     command = sys.argv[1]
     print(command)
