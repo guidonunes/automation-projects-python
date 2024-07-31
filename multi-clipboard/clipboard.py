@@ -2,6 +2,7 @@ import sys
 import clipboard
 import json
 
+SAVED_DATA = 'data.json'
 
 def save_items(filepath, items):
     with open(filepath, 'w') as file:
@@ -15,10 +16,12 @@ def load_items(filepath):
 
 if len(sys.argv) == 2:
     command = sys.argv[1]
-    print(command)
+
 
     if command == 'save':
         key = input("Enter key: ")
+        data[key] = clipboard.paste()
+        save_items('data.json', data)
     elif command == 'load':
         print('Laoding')
     elif command == 'list':
