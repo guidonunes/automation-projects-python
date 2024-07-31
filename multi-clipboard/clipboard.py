@@ -9,9 +9,12 @@ def save_items(filepath, items):
         json.dump(items, file)
 
 def load_items(filepath):
-    with open(filepath, 'r') as file:
-        data = json.load(file)
-        return data
+    try:
+        with open(filepath, 'r') as file:
+            data = json.load(file)
+            return data
+    except:
+        return {}
 
 
 if len(sys.argv) == 2:
@@ -19,6 +22,7 @@ if len(sys.argv) == 2:
     data = load_items(SAVED_DATA)
 
     if command == 'save':
+        # Save the clipboard data
         key = input("Enter key: ")
         data[key] = clipboard.paste()
         save_items(SAVED_DATA, data)
