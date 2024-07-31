@@ -18,7 +18,7 @@ if len(sys.argv) == 2:
     print(command)
 
     if command == 'save':
-        print('Saving')
+        key = input("Enter key: ")
     elif command == 'load':
         print('Laoding')
     elif command == 'list':
