@@ -15,3 +15,4 @@ if len(sys.argv) == 2:
         print('Listing')
     else:
         print('Invalid command')
+print('Please provide a command')
