@@ -16,7 +16,7 @@ def load_items(filepath):
 
 if len(sys.argv) == 2:
     command = sys.argv[1]
-
+    data = load_items(SAVED_DATA)
 
     if command == 'save':
         key = input("Enter key: ")
