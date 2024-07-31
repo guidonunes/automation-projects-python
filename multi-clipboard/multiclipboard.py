@@ -35,7 +35,7 @@ if len(sys.argv) == 2:
         else:
             print('Key not found')
     elif command == 'list':
-        print('Listing')
+        print(data)
     else:
         print('Invalid command')
 print('Please provide a command')
