@@ -39,3 +39,4 @@ def get_tickers_usdt():
     for ticker in resp:
         if 'USDT' in ticker['symbol']:
             tickers.append(ticker['symbol'])
+    return tickers
