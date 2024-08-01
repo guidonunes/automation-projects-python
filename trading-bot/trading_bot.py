@@ -46,7 +46,12 @@ print("Tickers: ", get_tickers_usdt())
 # Get the last 1000 candles
 def klines(symbol):
     try:
-        resp = pd.DataFrame(client.klines(symbol=symbol, interval='1h', limit=1000))
+        resp = pd.DataFrame(client.klines(symbol=symbol, interval='1h', limit=500))
+        resp = resp.iloc[:, 0:6]
+        resp.columns = ['date', 'open', 'high', 'low', 'close', 'volume']
+        resp = resp.set_index('time')
+        resp.index = pd.to_datetime(resp.index, unit='ms')
+        resp = resp.astype(float)
         return resp
     except ClientError as error:
         print(
@@ -54,3 +59,5 @@ def klines(symbol):
             error.status_code, error.error_code, error.error_message
             )
         )
+
+print(klines('BTCUSDT'))
