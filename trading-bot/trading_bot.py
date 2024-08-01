@@ -10,9 +10,9 @@ client = UMFutures(key=api, secret=secret_key)
 
 tp = 0.01   # Take profit
 sl = 0.01   # Stop loss
-volume = 50 # Volume in USDT
+volume = 50
 leverage = 10
-type = 'ISOLATED' # Isolated margin
+type = 'ISOLATED'
 
 
 def get_balance_usdt():
@@ -40,3 +40,17 @@ def get_tickers_usdt():
         if 'USDT' in ticker['symbol']:
             tickers.append(ticker['symbol'])
     return tickers
+
+print("Tickers: ", get_tickers_usdt())
+
+# Get the last 1000 candles
+def klines(symbol):
+    try:
+        resp = pd.DataFrame(client.klines(symbol=symbol, interval='1h', limit=1000))
+        return resp
+    except ClientError as error:
+        print(
+            "Found error. status: {}, error code: {}, error message: {}".format(
+            error.status_code, error.error_code, error.error_message
+            )
+        )
