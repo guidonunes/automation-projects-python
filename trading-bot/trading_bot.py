@@ -49,7 +49,7 @@ def klines(symbol):
         resp = pd.DataFrame(client.klines(symbol=symbol, interval='1h', limit=500))
         resp = resp.iloc[:, 0:6]
         resp.columns = ['date', 'open', 'high', 'low', 'close', 'volume']
-        resp = resp.set_index('time')
+        resp = resp.set_index('date')
         resp.index = pd.to_datetime(resp.index, unit='ms')
         resp = resp.astype(float)
         return resp
@@ -60,4 +60,4 @@ def klines(symbol):
             )
         )
 
-print(klines('BTCUSDT'))
+print(klines('ADAUSDT'))
