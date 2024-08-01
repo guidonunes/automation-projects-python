@@ -30,7 +30,8 @@ def get_balance_usdt():
     )
 
 
-print(get_balance_usdt())
+print("My balance is: ", get_balance_usdt(), " USDT")
 
 
-# Task: Fix API keys
+def get_tickers_usdt():
+    tickers = []
