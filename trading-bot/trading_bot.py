@@ -13,3 +13,15 @@ sl = 0.01   # Stop loss
 volume = 50 # Volume in USDT
 leverage = 10
 type = 'ISOLATED' # Isolated margin
+
+
+def get_balance_usdt():
+    try:
+        response = client.balance(recvWindow=6000)
+        print(response)
+    except ClientError as error:
+        print(
+            "Found error. status: {}, error code: {}, error message: {}".format(
+            error.status_code, error.error_code, error.error_message
+        )
+    )
