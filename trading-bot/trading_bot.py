@@ -18,7 +18,6 @@ type = 'ISOLATED' # Isolated margin
 def get_balance_usdt():
     try:
         response = client.balance(recvWindow=6000)
-        print(response)
         for asset in response:
             if asset['asset'] == 'USDT':
                 return float(asset['balance'])
