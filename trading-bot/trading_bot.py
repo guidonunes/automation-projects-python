@@ -19,6 +19,10 @@ def get_balance_usdt():
     try:
         response = client.balance(recvWindow=6000)
         print(response)
+        for asset in response:
+            if asset['asset'] == 'USDT':
+                return float(asset['balance'])
+
     except ClientError as error:
         print(
             "Found error. status: {}, error code: {}, error message: {}".format(
@@ -27,7 +31,7 @@ def get_balance_usdt():
     )
 
 
-get_balance_usdt()
+print(get_balance_usdt())
 
 
 # Task: Fix API keys
