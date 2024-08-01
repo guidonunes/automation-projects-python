@@ -25,3 +25,9 @@ def get_balance_usdt():
             error.status_code, error.error_code, error.error_message
         )
     )
+
+
+get_balance_usdt()
+
+
+# Task: Fix API keys
