@@ -35,3 +35,7 @@ print("My balance is: ", get_balance_usdt(), " USDT")
 
 def get_tickers_usdt():
     tickers = []
+    resp = client.ticker_price()
+    for ticker in resp:
+        if 'USDT' in ticker['symbol']:
+            tickers.append(ticker['symbol'])
