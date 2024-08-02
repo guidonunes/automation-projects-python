@@ -116,3 +116,6 @@ def open_order(symbol,side):
             sl_price = round(price - price * sl, price_precision)
             resp2 = client.new_order(symbol=symbol, side='SELL', type='STOP_MARKET', quantity=qty, timeInForce='GTC', stopPrice=sl_price)
             sleep(2)
+            tp_price = round(price + price * tp, price_precision)
+            resp3 = client.new_order(symbol=symbol, side='SELL', type='TAKE_PROFIT_MARKET', quantity=qty, timeInForce='GTC', stopPrice=tp_price)
+            sleep(2)
