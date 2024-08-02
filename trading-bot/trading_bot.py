@@ -119,3 +119,9 @@ def open_order(symbol,side):
             tp_price = round(price + price * tp, price_precision)
             resp3 = client.new_order(symbol=symbol, side='SELL', type='TAKE_PROFIT_MARKET', quantity=qty, timeInForce='GTC', stopPrice=tp_price)
             sleep(2)
+        except ClientError as error:
+            print(
+            "Found error. status: {}, error code: {}, error message: {}".format(
+            error.status_code, error.error_code, error.error_message
+        )
+    )
