@@ -75,3 +75,16 @@ def set_leverage(symbol, leverage):
             error.status_code, error.error_code, error.error_message
         )
     )
+
+def set_mode(symbol, mode):
+    try:
+        response = client.change_margin_type(
+        symbol="BTCUSDT", marginType="ISOLATED", recvWindow=6000
+        )
+        print(response)
+    except ClientError as error:
+        print(
+        "Found error. status: {}, error code: {}, error message: {}".format(
+            error.status_code, error.error_code, error.error_message
+        )
+    )
