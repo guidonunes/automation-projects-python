@@ -76,10 +76,10 @@ def set_leverage(symbol, leverage):
         )
     )
 
-def set_mode(symbol, mode):
+def set_mode(symbol, type):
     try:
         response = client.change_margin_type(
-        symbol="BTCUSDT", marginType="ISOLATED", recvWindow=6000
+        symbol=symbol, marginType=type, recvWindow=6000
         )
         print(response)
     except ClientError as error:
