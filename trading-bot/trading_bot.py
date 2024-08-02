@@ -94,3 +94,9 @@ def get_price_precision(symbol):
     for elem in response:
         if elem['symbol'] == symbol:
             return elem['pricePrecision']
+
+def get_qty_precision(symbol):
+    response = client.exchangeInfo()['symbols']
+    for elem in response:
+        if elem['symbol'] == symbol:
+            return elem['quantityPrecision']
