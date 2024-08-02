@@ -61,3 +61,17 @@ def klines(symbol):
         )
 
 print(klines('ADAUSDT'))
+
+# Set leverage
+def set_leverage(symbol, leverage):
+    try:
+        response = client.change_leverage(
+        symbol=symbol, leverage=leverage, recvWindow=6000
+        )
+        print(response)
+    except ClientError as error:
+        print(
+        "Found error. status: {}, error code: {}, error message: {}".format(
+            error.status_code, error.error_code, error.error_message
+        )
+    )
