@@ -95,8 +95,24 @@ def get_price_precision(symbol):
         if elem['symbol'] == symbol:
             return elem['pricePrecision']
 
+
 def get_qty_precision(symbol):
     response = client.exchangeInfo()['symbols']
     for elem in response:
         if elem['symbol'] == symbol:
             return elem['quantityPrecision']
+
+def open_order(symbol,side):
+    price = float(client.ticker_price(symbol=symbol)['price'])
+    qty_precision = get_qty_precision(symbol)
+    price_precision = get_price_precision(symbol)
+    qty = round(volume / price, qty_precision)
+    if side == 'buy':
+        try:
+            resp1 = client.new_order(symbol=symbol, side='BUY', type='LIMIT', quantity=qty, timeInForce='GTC', price=price)
+            print(symbol, side, 'placing order')
+            print(resp1)
+            sleep(2)
+            sl_price = round(price - price * sl, price_precision)
+            resp2 = client.new_order(symbol=symbol, side='SELL', type='STOP_MARKET', quantity=qty, timeInForce='GTC', stopPrice=sl_price)
+            sleep(2)
