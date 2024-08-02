@@ -88,3 +88,9 @@ def set_mode(symbol, type):
             error.status_code, error.error_code, error.error_message
         )
     )
+
+def get_price_precision(symbol):
+    response = client.exchangeInfo()['symbols']
+    for elem in response:
+        if elem['symbol'] == symbol:
+            return elem['pricePrecision']
