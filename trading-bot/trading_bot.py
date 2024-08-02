@@ -162,3 +162,14 @@ def check_positions():
                     error.status_code, error.error_code, error.error_message
                 )
              )
+
+def close_open_orders(symbol):
+    try:
+        response = client.cancel_open_orders(symbol=symbol, recvWindow=2000)
+        print(response)
+    except ClientError as error:
+        print(
+            "Found error. status: {}, error code: {}, error message: {}".format(
+                error.status_code, error.error_code, error.error_message
+            )
+        )
