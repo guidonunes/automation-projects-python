@@ -191,3 +191,11 @@ def check_macd_ema(symbol):
 order = False
 symbol = ''
 symbols = get_tickers_usdt()
+
+while True:
+    positions = check_positions()
+    print(f'You have {positions} positions open')
+    if positions == 0:
+        order = False
+        if symbol != '':
+            close_open_orders(symbol)
