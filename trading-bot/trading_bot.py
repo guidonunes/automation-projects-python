@@ -186,4 +186,4 @@ def check_macd_ema(symbol):
         return 'down'
 
     else:
-        return None
+        return 'none'
