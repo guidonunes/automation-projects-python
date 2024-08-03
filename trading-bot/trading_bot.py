@@ -214,3 +214,15 @@ while True:
                 symbol = elem
                 order = True
                 break
+            if signal == 'down':
+                print('Signal to sell ', elem)
+                set_mode(elem, type)
+                sleep(1)
+                set_leverage(elem, leverage)
+                sleep(1)
+                print('Placing order for ', elem)
+                open_order(elem, side='sell')
+                symbol = elem
+                order = True
+                break
+    print('Waiting 60secs')
