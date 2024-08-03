@@ -199,3 +199,18 @@ while True:
         order = False
         if symbol != '':
             close_open_orders(symbol)
+
+    if order == False:
+        for elem in symbols:
+            signal = check_macd_ema(elem)
+            if signal == 'up':
+                print('Signal to buy ', elem)
+                set_mode(elem, type)
+                sleep(1)
+                set_leverage(elem, leverage)
+                sleep(1)
+                print('Placing order for ', elem)
+                open_order(elem, side='buy')
+                symbol = elem
+                order = True
+                break
