@@ -226,3 +226,4 @@ while True:
                 order = True
                 break
     print('Waiting 60secs')
+    sleep(60)
