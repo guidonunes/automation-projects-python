@@ -173,3 +173,6 @@ def close_open_orders(symbol):
                 error.status_code, error.error_code, error.error_message
             )
         )
+
+def check_macd_ema(symbol):
+    kl = klines(symbol)
