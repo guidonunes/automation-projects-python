@@ -187,3 +187,7 @@ def check_macd_ema(symbol):
 
     else:
         return 'none'
+
+order = False
+symbol = ''
+symbols = get_tickers_usdt()
