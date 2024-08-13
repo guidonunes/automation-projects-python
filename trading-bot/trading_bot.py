@@ -90,14 +90,14 @@ def set_mode(symbol, type):
     )
 
 def get_price_precision(symbol):
-    response = client.exchangeInfo()['symbols']
+    response = client.exchange_info()['symbols']
     for elem in response:
         if elem['symbol'] == symbol:
             return elem['pricePrecision']
 
 
 def get_qty_precision(symbol):
-    response = client.exchangeInfo()['symbols']
+    response = client.exchange_info()['symbols']
     for elem in response:
         if elem['symbol'] == symbol:
             return elem['quantityPrecision']
